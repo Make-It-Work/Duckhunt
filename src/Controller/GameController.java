@@ -1,9 +1,12 @@
+package Controller;
+
+import View.GameView;
 
 public class GameController {
 	
 	public static void main(String[] args)
 	{
-		GuiController gui = new GuiController();
+		GameView gui = new GameView();
 		
 		boolean playing = true;
 		
