@@ -1,15 +1,29 @@
 package View;
-import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import Helpers.InputContainer;
+
 public class GameView extends JFrame{
-	private JPanel contentPane = new HuntingGroundView();
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
-	public GameView()
+	private JPanel contentPane;
+	private InputContainer inputContainer;
+	
+	public GameView(InputContainer input)
 	{
 		super("Duck Hunt");
+		this.inputContainer = input;
+		
+		contentPane = new HuntingGroundView();
 		Configure();
 		
 		pack();
@@ -22,6 +36,13 @@ public class GameView extends JFrame{
 		//this.setResizable(false);
 		this.setContentPane(contentPane);
 		contentPane.revalidate();
+
+		addMouseListener(new MouseAdapter() {
+			@Override
+		    public void mousePressed(MouseEvent e) {
+				inputContainer.addEvent(new ActionEvent(e.getSource(), e.getID(), e.paramString()));
+		    }
+		});
 	}
 	
 }

@@ -3,10 +3,15 @@ package View;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JPanel;
+
+import Helpers.InputContainer;
 
 public class HuntingGroundView extends JPanel implements Observer{
 
@@ -23,6 +28,7 @@ public class HuntingGroundView extends JPanel implements Observer{
 		this.setPreferredSize(new Dimension(500, 500));
 		this.setLayout(null);
 		this.setBackground(Color.black);
+		
 	}
 	
 	@Override
@@ -34,5 +40,6 @@ public class HuntingGroundView extends JPanel implements Observer{
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 	}
-
+	
+	
 }
