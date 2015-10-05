@@ -3,15 +3,15 @@ package View;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JPanel;
 
-import Helpers.InputContainer;
+import Model.GameObject;
+
+import Model.GameObject;
 
 public class HuntingGroundView extends JPanel implements Observer{
 
@@ -19,9 +19,11 @@ public class HuntingGroundView extends JPanel implements Observer{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private ArrayList<GameObject> drawables = new ArrayList<GameObject>();
 
-	public HuntingGroundView(){
+	public HuntingGroundView(ArrayList<GameObject> objects){
 		configure();
+		drawables = objects;
 	}
 	
 	private void configure(){
@@ -39,6 +41,8 @@ public class HuntingGroundView extends JPanel implements Observer{
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		for(GameObject go : drawables)
+			g.fillRect(go.getCoords().x, go.getCoords().y, go.getSize().width, go.getSize().height);
 	}
 	
 	

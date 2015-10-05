@@ -1,9 +1,12 @@
 package Controller;
 
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
-import Helpers.InputContainer;
+import Model.Duck;
+import Model.GameObject;
 import View.GameView;
+import containers.InputContainer;
 
 public class GameController {
 	
@@ -19,22 +22,24 @@ public class GameController {
 	InputContainer input = new InputContainer();
 	
 	//models
-
+	private ArrayList<GameObject> objects = new ArrayList<GameObject>();
+	
 	//views
-	GameView gui = new GameView(input);
+	GameView gui;
 	
 	
 	public GameController()
 	{
+		objects.add(
+				new Duck(10,10,10,10,30,30)
+				);
+		gui = new GameView(input, objects);
 		loop();
 	}
 	
 	private void loop()
 	{
 		while(playing) {
-			ActionEvent ae;
-			while((ae = input.getEvent()) != null)
-				System.out.println(ae.getActionCommand());
 			gui.repaint();
 			try {
 				Thread.sleep(10000);

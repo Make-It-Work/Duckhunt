@@ -1,13 +1,14 @@
 package View;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Helpers.InputContainer;
+import Model.GameObject;
+import containers.InputContainer;
 
 public class GameView extends JFrame{
 	/**
@@ -18,12 +19,12 @@ public class GameView extends JFrame{
 	private JPanel contentPane;
 	private InputContainer inputContainer;
 	
-	public GameView(InputContainer input)
+	public GameView(InputContainer input, ArrayList<GameObject> objects)
 	{
 		super("Duck Hunt");
 		this.inputContainer = input;
 		
-		contentPane = new HuntingGroundView();
+		contentPane = new HuntingGroundView(objects);
 		Configure();
 		
 		pack();
