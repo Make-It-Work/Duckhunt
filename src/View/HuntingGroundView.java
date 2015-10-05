@@ -6,9 +6,15 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Helpers.InputContainer;
@@ -25,9 +31,16 @@ public class HuntingGroundView extends JPanel implements Observer{
 	}
 	
 	private void configure(){
-		this.setPreferredSize(new Dimension(500, 500));
-		this.setLayout(null);
-		this.setBackground(Color.black);
+		try {
+			BufferedImage img = ImageIO.read(new File("src/background.png"));
+			JLabel background = new JLabel(new ImageIcon(img));
+			this.add(background);
+		} catch (IOException e) {
+			this.setBackground(Color.black);
+			e.printStackTrace();
+		}
+		this.setPreferredSize(new Dimension(891, 558));
+		//this.setLayout(null);
 		
 	}
 	
