@@ -28,6 +28,10 @@ public abstract class GameObject{
 	}
 	*/
 
+	public GameObject() {
+		
+	}
+
 	public Dimension getSize() {
 		return size;
 	}
@@ -51,5 +55,7 @@ public abstract class GameObject{
 	public void setVector(Point vector) {
 		this.vector = vector;
 	}
+	
+	abstract Duck copy(Dimension size, Point vector, Point coords);
 	
 }

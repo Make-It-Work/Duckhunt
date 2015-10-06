@@ -1,12 +1,16 @@
 package Controller;
 
+import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 import Model.Duck;
 import Model.GameObject;
+import Model.RedDuck;
 import View.GameView;
 import containers.InputContainer;
+import factories.DuckFactory;
 
 public class GameController {
 	
@@ -30,9 +34,15 @@ public class GameController {
 	
 	public GameController()
 	{
-		objects.add(
-				new Duck(50,50,10,10,80,80)
-				);
+		try
+		{
+			final Duck redDuck = DuckFactory.create("RedDuck", new Dimension(50, 50), new Point(0, 2), new Point(30,100));
+			objects.add(redDuck);
+		}
+		catch ( IllegalArgumentException exception )
+		{
+			System.out.println( exception.getMessage() );
+		}
 		gui = new GameView(input, objects);
 		loop();
 	}
