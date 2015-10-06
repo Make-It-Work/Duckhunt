@@ -4,13 +4,10 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import levels.FirstLevel;
 import levels.LevelBase;
 import Model.Duck;
 import Model.GameObject;
 import View.GameView;
-import behaviours.MoveBehaviour;
-import containers.Container;
 import containers.InputContainer;
 import containers.MoveContainer;
 import factories.DuckFactory;
@@ -55,7 +52,7 @@ public class GameController {
 	{
 		while(playing) {
 			//Read input
-			
+			createDuck();
 			//Move objects
 			movec.Run();
 			gui.repaint();
