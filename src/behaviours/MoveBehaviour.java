@@ -13,7 +13,6 @@ public class MoveBehaviour extends Behaviour {
 
 	@Override
 	public void behave(float dt) {
-		System.out.println("behaving");
 		Point p = (Point)object.getCoords().clone();
 		Point vect = object.getVector();
 		

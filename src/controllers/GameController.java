@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.util.ArrayList;
 
+import levels.FirstLevel;
+import levels.LevelBase;
 import Model.Duck;
 import Model.GameObject;
 import View.GameView;
@@ -12,6 +14,7 @@ import containers.Container;
 import containers.InputContainer;
 import containers.MoveContainer;
 import factories.DuckFactory;
+import factories.LevelFactory;
 
 public class GameController {
 	
@@ -33,17 +36,24 @@ public class GameController {
 	//views
 	GameView gui;
 	
+	private LevelBase startLevel;
+	
 	
 	public GameController()
 	{
 		gui = new GameView(input, objects);
-		loop();
+		try {
+			startLevel = LevelFactory.create("FirstLevel");
+			startLevel.handle();
+			loop();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private void loop()
 	{
 		while(playing) {
-			System.out.println("looping");
 			//Read input
 			
 			//Move objects

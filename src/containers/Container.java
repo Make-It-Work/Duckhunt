@@ -22,7 +22,6 @@ public abstract class Container {
 	
 	public void Run()
 	{
-		System.out.println("running");
 		for(Behaviour b : behaviours)
 			b.behave(1);
 	}
