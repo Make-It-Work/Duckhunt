@@ -31,7 +31,7 @@ public class GameController {
 	public GameController()
 	{
 		objects.add(
-				new Duck(30,30,10,10,80,80)
+				new Duck(50,50,10,10,80,80)
 				);
 		gui = new GameView(input, objects);
 		loop();
