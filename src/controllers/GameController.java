@@ -38,9 +38,9 @@ public class GameController {
 	{
 		try
 		{
-			final Duck redDuck = DuckFactory.create("RedDuck", new Dimension(50, 50), new Point(0, 2), new Point(30,100));
+			final Duck redDuck = DuckFactory.create("RedDuck", new Dimension(50, 50), new Point(0, 2), new Point(30,100), movec);
 			objects.add(redDuck);
-			final Duck greenDuck = DuckFactory.create("GreenDuck", new Dimension(50, 50), new Point(0, 2), new Point(100,30));
+			final Duck greenDuck = DuckFactory.create("GreenDuck", new Dimension(50, 50), new Point(0, 2), new Point(100,30), movec);
 			objects.add(greenDuck);
 		}
 		catch ( IllegalArgumentException exception )

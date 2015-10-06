@@ -61,6 +61,6 @@ public abstract class GameObject{
 		this.vector = vector;
 	}
 	
-	abstract Duck copy(Dimension size, Point vector, Point coords);
+	//abstract Duck copy(Dimension size, Point vector, Point coords);
 	
 }

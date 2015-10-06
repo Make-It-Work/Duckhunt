@@ -50,9 +50,12 @@ public class HuntingGroundView extends JLabel implements Observer{
 		super.paintComponent(g);
 		
 		for(GameObject go : drawables) {
-			BufferedImage img;
 			try {
-				img = ImageIO.read(new File("src/duck.png"));
+				String fileString = "src/duck.png";
+				if(go.getColor().equals("Red")) {
+					fileString = "src/redduck.png";
+				}
+				BufferedImage img = ImageIO.read(new File(fileString));
 				g.drawImage(img, go.getCoords().x, go.getCoords().y, this);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
