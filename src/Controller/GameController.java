@@ -1,12 +1,14 @@
 package Controller;
 
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 import Model.Duck;
 import Model.GameObject;
 import View.GameView;
+import behaviours.MoveBehaviour;
+import containers.Container;
 import containers.InputContainer;
+import containers.MoveContainer;
 
 public class GameController {
 	
@@ -20,6 +22,7 @@ public class GameController {
 	
 	//containers
 	InputContainer input = new InputContainer();
+	MoveContainer movec = new MoveContainer();
 	
 	//models
 	private ArrayList<GameObject> objects = new ArrayList<GameObject>();
@@ -30,8 +33,10 @@ public class GameController {
 	
 	public GameController()
 	{
+		Duck d = new Duck(30,30,10,10,80,80);
+		MoveBehaviour mb = new MoveBehaviour((GameObject)d, (Container)movec);
 		objects.add(
-				new Duck(30,30,10,10,80,80)
+					d
 				);
 		gui = new GameView(input, objects);
 		loop();
@@ -40,12 +45,14 @@ public class GameController {
 	private void loop()
 	{
 		while(playing) {
+			System.out.println("looping");
 			//Read input
 			
 			//Move objects
+			movec.Run();
 			gui.repaint();
 			try {
-				Thread.sleep(10000);
+				Thread.sleep(500);
 			} catch (Exception e) {
 				
 			}
