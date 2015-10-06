@@ -2,8 +2,6 @@ package Model;
 import java.awt.Dimension;
 import java.awt.Point;
 
-
-
 public abstract class GameObject{
 	private Dimension size;
 	private Point coords;

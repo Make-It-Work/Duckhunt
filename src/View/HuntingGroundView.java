@@ -3,16 +3,13 @@ package View;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-<<<<<<< .merge_file_a00932
 import java.util.ArrayList;
-=======
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
->>>>>>> .merge_file_a13472
 import java.util.Observable;
 import java.util.Observer;
 
@@ -23,9 +20,7 @@ import javax.swing.JPanel;
 
 import Model.GameObject;
 
-import Model.GameObject;
-
-public class HuntingGroundView extends JPanel implements Observer{
+public class HuntingGroundView extends JLabel implements Observer{
 
 	/**
 	 * 
@@ -33,23 +28,16 @@ public class HuntingGroundView extends JPanel implements Observer{
 	private static final long serialVersionUID = 1L;
 	private ArrayList<GameObject> drawables = new ArrayList<GameObject>();
 
-	public HuntingGroundView(ArrayList<GameObject> objects){
-		configure();
+	public HuntingGroundView(ArrayList<GameObject> objects, ImageIcon img){
+		super(img);
 		drawables = objects;
+		configure();
 	}
 	
 	private void configure(){
-		try {
-			BufferedImage img = ImageIO.read(new File("src/background.png"));
-			JLabel background = new JLabel(new ImageIcon(img));
-			this.add(background);
-		} catch (IOException e) {
-			this.setBackground(Color.black);
-			e.printStackTrace();
-		}
 		this.setPreferredSize(new Dimension(891, 558));
 		//this.setLayout(null);
-		
+		repaint();
 	}
 	
 	@Override
@@ -60,9 +48,11 @@ public class HuntingGroundView extends JPanel implements Observer{
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		for(GameObject go : drawables)
-			g.fillRect(go.getCoords().x, go.getCoords().y, go.getSize().width, go.getSize().height);
+		for(GameObject go : drawables) {
+			DuckView duck = new DuckView(this, go);
+			//g.fillRect(go.getCoords().x, go.getCoords().y, go.getSize().width, go.getSize().height);
+		}
+			
 	}
-	
 	
 }
