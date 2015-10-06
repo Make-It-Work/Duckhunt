@@ -8,6 +8,8 @@ public abstract class Behaviour {
 	protected GameObject object;
 	protected Container container;
 	
+	public Behaviour() {}
+	
 	public Behaviour(GameObject object, Container container)
 	{
 		this.object = object;
@@ -15,4 +17,5 @@ public abstract class Behaviour {
 		container.addBehaviour(this);
 	}
 	public abstract void behave(float dt);
+	public abstract Behaviour copy(GameObject object, Container container);
 }

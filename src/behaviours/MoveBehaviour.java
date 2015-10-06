@@ -22,6 +22,11 @@ public class MoveBehaviour extends Behaviour {
 		
 		object.setCoords(p);
 	}
+
+	@Override
+	public MoveBehaviour copy(GameObject object, Container container) {
+		return new MoveBehaviour(object, container);
+	}
 	
 	
 }

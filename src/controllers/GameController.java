@@ -36,17 +36,6 @@ public class GameController {
 	
 	public GameController()
 	{
-		try
-		{
-			final Duck redDuck = DuckFactory.create("RedDuck", new Dimension(50, 50), new Point(0, 2), new Point(30,100), movec);
-			objects.add(redDuck);
-			final Duck greenDuck = DuckFactory.create("GreenDuck", new Dimension(50, 50), new Point(0, 2), new Point(100,30), movec);
-			objects.add(greenDuck);
-		}
-		catch ( IllegalArgumentException exception )
-		{
-			exception.printStackTrace();
-		}
 		gui = new GameView(input, objects);
 		loop();
 	}
@@ -65,6 +54,20 @@ public class GameController {
 			} catch (Exception e) {
 				
 			}
+		}
+	}
+	
+	private void createDuck() {
+		try
+		{
+			final Duck redDuck = DuckFactory.create("RedDuck", new Dimension(50, 50), new Point(0, 2), new Point(30,100), movec);
+			objects.add(redDuck);
+			final Duck greenDuck = DuckFactory.create("GreenDuck", new Dimension(50, 50), new Point(0, 2), new Point(100,30), movec);
+			objects.add(greenDuck);
+		}
+		catch ( IllegalArgumentException exception )
+		{
+			exception.printStackTrace();
 		}
 	}
 	
