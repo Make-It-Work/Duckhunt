@@ -6,6 +6,7 @@ public abstract class GameObject{
 	private Dimension size;
 	private Point coords;
 	private Point vector;
+	protected String color;
 	
 	public GameObject(Dimension size, Point vector, Point coords) {
 		this.size = size;
@@ -31,7 +32,11 @@ public abstract class GameObject{
 	public GameObject() {
 		
 	}
-
+	
+	public String getColor() {
+		return this.color;
+	}
+	
 	public Dimension getSize() {
 		return size;
 	}

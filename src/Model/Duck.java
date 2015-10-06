@@ -3,7 +3,7 @@ package Model;
 import java.awt.Dimension;
 import java.awt.Point;
 
-public abstract class Duck extends GameObject {	
+public abstract class Duck extends GameObject {
 	public Duck() {
 		super();
 	}

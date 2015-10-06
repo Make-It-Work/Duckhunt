@@ -1,5 +1,7 @@
 package controllers;
 
+import java.awt.Dimension;
+import java.awt.Point;
 import java.util.ArrayList;
 
 import Model.Duck;
@@ -9,6 +11,7 @@ import behaviours.MoveBehaviour;
 import containers.Container;
 import containers.InputContainer;
 import containers.MoveContainer;
+import factories.DuckFactory;
 
 public class GameController {
 	
@@ -33,14 +36,17 @@ public class GameController {
 	
 	public GameController()
 	{
-		/*
-		Duck d = new Duck(30,30,10,10,80,80);
-		MoveBehaviour mb = new MoveBehaviour((GameObject)d, (Container)movec);
-		
-		objects.add(
-					d
-				);
-		*/
+		try
+		{
+			final Duck redDuck = DuckFactory.create("RedDuck", new Dimension(50, 50), new Point(0, 2), new Point(30,100));
+			objects.add(redDuck);
+			final Duck greenDuck = DuckFactory.create("GreenDuck", new Dimension(50, 50), new Point(0, 2), new Point(100,30));
+			objects.add(greenDuck);
+		}
+		catch ( IllegalArgumentException exception )
+		{
+			exception.printStackTrace();
+		}
 		gui = new GameView(input, objects);
 		loop();
 	}

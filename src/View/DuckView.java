@@ -22,7 +22,11 @@ public class DuckView extends JPanel {
 
 	public DuckView(HuntingGroundView gui, GameObject go) {
 		try {
-			BufferedImage img = ImageIO.read(new File("src/duck.png"));
+			String fileString = "src/duck.png";
+			if(go.getColor().equals("Red")) {
+				fileString = "src/redduck.png";
+			}
+			BufferedImage img = ImageIO.read(new File(fileString));
 			BufferedImage resizedImage = new BufferedImage(go.getSize().width, go.getSize().height, BufferedImage.TYPE_INT_ARGB);
 			Graphics2D g = resizedImage.createGraphics();
 			g.drawImage(img, 0, 0, go.getSize().width, go.getSize().height, null);
