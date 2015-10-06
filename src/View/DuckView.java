@@ -1,6 +1,7 @@
 package View;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +23,11 @@ public class DuckView extends JPanel {
 	public DuckView(HuntingGroundView gui, GameObject go) {
 		try {
 			BufferedImage img = ImageIO.read(new File("src/duck.png"));
-			JLabel duck = new JLabel(new ImageIcon(img));
+			BufferedImage resizedImage = new BufferedImage(go.getSize().width, go.getSize().height, BufferedImage.TYPE_INT_ARGB);
+			Graphics2D g = resizedImage.createGraphics();
+			g.drawImage(img, 0, 0, go.getSize().width, go.getSize().height, null);
+			g.dispose();		
+			JLabel duck = new JLabel(new ImageIcon(resizedImage));
 			duck.setBounds(go.getCoords().x, go.getCoords().y, go.getSize().width, go.getSize().height);
 			gui.add(duck);
 		} catch (IOException e) {
