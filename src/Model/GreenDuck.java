@@ -24,8 +24,9 @@ public class GreenDuck extends Duck{
 	@Override
 	public Duck copy(Dimension size, Point vector, Point coords, MoveContainer moveContainer, HitContainer hc) {
 		// TODO Auto-generated method stub
-		RedDuck duck = new RedDuck(size, vector, coords, moveContainer, hc);
+		GreenDuck duck = new GreenDuck(size, vector, coords, moveContainer, hc);
 		duck.color = "Green";
+		duck.changeState();
 		return duck;
 	}
 	public void kwaak() {

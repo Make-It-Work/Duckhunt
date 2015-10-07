@@ -14,7 +14,7 @@ public abstract class DuckState {
 	}
 	
 	public abstract DuckState copy();
-	public abstract void handle();
+	public abstract boolean handle();
 	public int getID() {
 		return ID;
 	}

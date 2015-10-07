@@ -56,7 +56,14 @@ public class DuckFactory {
 
 	public static DuckState getNextState(DuckState ds) {
 		// TODO Auto-generated method stub
-		return duckstates.get(ds.getID() + 1);
+		if(ds == null) {
+			return duckstates.get(1);
+		}
+		DuckState newds = duckstates.get(ds.getID() + 1);
+		if (newds == null) {
+			return duckstates.get(ds.getID());
+		}
+		return newds;
 	}
 
 	public static ArrayList<GameObject> getRandomDucks(int amountOfUnits, MoveContainer movec, HitContainer hitc) {
@@ -67,7 +74,6 @@ public class DuckFactory {
 		start.x = 0;
 		start.y = 400;
 		for (int i = 0; i < amountOfUnits; i++) {
-			System.out.println("Duck creation");
 			Random random = new Random();
 			boolean green = random.nextBoolean();
 			String type = "GreenDuck";
@@ -81,6 +87,12 @@ public class DuckFactory {
 			objectList.add(duck);
 		}
 		return objectList;
+	}
+
+	public static DuckState changeState(DuckState ds) {
+		// TODO Auto-generated method stub
+		System.out.println("Changing");
+		return getNextState(ds);
 	}
 
 }

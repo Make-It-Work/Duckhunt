@@ -14,8 +14,8 @@ public class DuckDead extends DuckState{
 	}
 
 	@Override
-	public void handle() {
+	public boolean handle() {
 		// TODO Auto-generated method stub
-		System.out.println("X_X");
+		return false;
 	}
 }

@@ -26,6 +26,7 @@ public class HitBehaviour extends Behaviour {
 				)
 		{
 			processHit();
+			object.changeState();
 			return true;
 		}
 		return false;

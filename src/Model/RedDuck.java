@@ -11,8 +11,6 @@ public class RedDuck extends Duck{
 	
 	public RedDuck() {
 		super();
-		ds = DuckFactory.setState(ds);
-		ds.handle();
 	}
 
 	public RedDuck(int l, int w, int vecX, int vecY, int x, int y, MoveContainer mc, HitContainer hc) {
@@ -28,6 +26,7 @@ public class RedDuck extends Duck{
 	public Duck copy(Dimension size, Point vector, Point coords, MoveContainer moveContainer, HitContainer hc) {
 		// TODO Auto-generated method stub
 		RedDuck duck = new RedDuck(size, vector, coords, moveContainer, hc);
+		duck.changeState();
 		duck.color = "Red";
 		vector.x = vector.x*2;
 		vector.y = vector.y*2;

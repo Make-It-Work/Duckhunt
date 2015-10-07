@@ -62,5 +62,5 @@ public abstract class GameObject{
 	}
 	
 	//abstract Duck copy(Dimension size, Point vector, Point coords);
-	
+	public abstract void changeState();
 }
