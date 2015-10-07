@@ -48,7 +48,6 @@ public class HuntingGroundView extends JLabel implements Observer{
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
 		for(GameObject go : drawables) {
 			try {
 				String fileString = "src/duck.png";

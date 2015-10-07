@@ -25,6 +25,9 @@ public class RedDuck extends Duck{
 		// TODO Auto-generated method stub
 		RedDuck duck = new RedDuck(size, vector, coords, moveContainer);
 		duck.color = "Red";
+		vector.x = vector.x*2;
+		vector.y = vector.y*2;
+		duck.setVector(vector);
 		return duck;
 	}
 	public void kwaak() {
