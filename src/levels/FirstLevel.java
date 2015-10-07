@@ -6,6 +6,7 @@ import containers.MoveContainer;
 public class FirstLevel extends LevelBase{
 	public FirstLevel() {
 		super();
+		this.ID = 1;
 	}
 	
 	public FirstLevel(MoveContainer movec, HitContainer hitc) {
@@ -25,6 +26,5 @@ public class FirstLevel extends LevelBase{
 	public void handle() {
 		// TODO Auto-generated method stub
 		System.out.println("Handling level 1");
-		nextLevel(this);
 	}
 }

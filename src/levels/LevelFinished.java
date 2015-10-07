@@ -7,6 +7,7 @@ public class LevelFinished extends LevelBase {
 
 	public LevelFinished() {
 		super();
+		this.ID = 3;
 	}
 	public LevelFinished(MoveContainer mc, HitContainer hitc) {
 		super(mc, hitc);

@@ -34,7 +34,6 @@ public class GameController {
 	
 	private LevelBase startLevel;
 	
-	
 	public GameController()
 	{
 		try {
@@ -59,6 +58,15 @@ public class GameController {
 			//Move objects
 			hitc.Run(dt);
 			movec.Run(dt);
+			if(movec.isEmpty()) {
+				startLevel = startLevel.nextLevel(startLevel);
+				if (startLevel == null) {
+					System.exit(0);
+				} else {
+					startLevel.handle();
+					objects = startLevel.getObjects();
+				}
+			};
 			try {
 				Thread.sleep(10);
 			} catch (Exception e) {

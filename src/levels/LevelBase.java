@@ -32,7 +32,7 @@ public abstract class LevelBase {
 	public abstract LevelBase copy(MoveContainer mc, HitContainer hitc);
 	public abstract void handle();
 	public int getID() {
-		return ID;
+		return this.ID;
 	}
 	
 	public ArrayList<GameObject> getObjects() {
@@ -40,6 +40,6 @@ public abstract class LevelBase {
 	}
 	
 	public void createObjects() {
-		objects = DuckFactory.getRandomDucks(amountOfUnits, movec, hitc);
+		this.objects = DuckFactory.getRandomDucks(this.amountOfUnits, movec, hitc);
 	}
 }
