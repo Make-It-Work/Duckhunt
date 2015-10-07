@@ -20,9 +20,9 @@ public abstract class Container {
 		behaviours.remove(b);
 	}
 	
-	public void Run()
+	public void Run(long dt)
 	{
 		for(Behaviour b : behaviours)
-			b.behave(1);
+			b.behave(dt);
 	}
 }

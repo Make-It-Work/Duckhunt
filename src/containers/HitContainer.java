@@ -15,7 +15,7 @@ public class HitContainer extends Container {
 	}
 	
 	@Override
-	public void Run()
+	public void Run(long dt)
 	{
 		//System.out.println("checking hits");
 		Point event;

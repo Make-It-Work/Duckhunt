@@ -1,16 +1,13 @@
 package controllers;
 
-import java.awt.Dimension;
-import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Date;
 
-import Model.Duck;
 import Model.GameObject;
 import View.GameView;
 import containers.HitContainer;
 import containers.InputContainer;
 import containers.MoveContainer;
-import factories.DuckFactory;
 import factories.LevelFactory;
 import levels.LevelBase;
 
@@ -55,17 +52,23 @@ public class GameController {
 	
 	private void loop()
 	{
+		long dt = 0;
+		long timestamp = new Date().getTime();
 		while(playing) {
 			//Read input
 			//Move objects
-			hitc.Run();
-			movec.Run();
+			hitc.Run(dt);
+			movec.Run(dt);
 			gui.repaint();
 			try {
-				Thread.sleep(500);
+				Thread.sleep(10);
 			} catch (Exception e) {
 				
 			}
+			System.out.println(dt);
+			long newTime = new Date().getTime();
+			dt = newTime - timestamp;
+			timestamp = newTime;
 		}
 	}
 }

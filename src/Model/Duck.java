@@ -3,6 +3,7 @@ package Model;
 import java.awt.Dimension;
 import java.awt.Point;
 
+import behaviours.FallBehaviour;
 import behaviours.HitBehaviour;
 import behaviours.MoveBehaviour;
 import containers.Container;
@@ -51,6 +52,7 @@ public abstract class Duck extends GameObject {
 	
 	public void die() {
 		mc.removeBehaviour(mb);
+		mc.addBehaviour(new FallBehaviour((GameObject)this, (Container)mc));
 		hc.removeBehaviour(hb);
 	}
 	
