@@ -59,7 +59,7 @@ public class DuckFactory {
 		return duckstates.get(ds.getID() + 1);
 	}
 
-	public static ArrayList<GameObject> getRandomDucks(int amountOfUnits, MoveContainer movec) {
+	public static ArrayList<GameObject> getRandomDucks(int amountOfUnits, MoveContainer movec, HitContainer hitc) {
 		// TODO Auto-generated method stub
 		ArrayList<GameObject> objectList = new ArrayList<GameObject>();
 		Dimension d = new Dimension(50,50);
@@ -76,7 +76,7 @@ public class DuckFactory {
 				type = "RedDuck";
 			}
 			Point vector = new Point(vecX, vecY);
-			Duck duck = create(type, d, vector, start, movec);
+			Duck duck = create(type, d, vector, start, movec, hitc);
 			objectList.add(duck);
 		}
 		return objectList;

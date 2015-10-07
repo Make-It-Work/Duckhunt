@@ -1,5 +1,6 @@
 package levels;
 
+import containers.HitContainer;
 import containers.MoveContainer;
 
 public class Level2 extends LevelBase{
@@ -7,17 +8,17 @@ public class Level2 extends LevelBase{
 		super();
 	}
 	
-	public Level2(MoveContainer movec) {
-		super(movec);
+	public Level2(MoveContainer movec, HitContainer hitc) {
+		super(movec, hitc);
 		amountOfUnits = 4;
 		this.ID = 2;
 		createObjects();
 	}
 	
 	@Override
-	public LevelBase copy(MoveContainer mc) {
+	public LevelBase copy(MoveContainer mc, HitContainer hitc) {
 		// TODO Auto-generated method stub
-		return new Level2(mc);
+		return new Level2(mc, hitc);
 	}
 
 	@Override

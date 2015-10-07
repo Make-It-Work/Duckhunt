@@ -17,8 +17,6 @@ public class HitBehaviour extends Behaviour {
 	}
 
 	public boolean CheckHit(int x, int y) {
-		System.out.println(object.getCoords().toString());
-		System.out.println(object.getSize().toString());
 		if(
 				object.getCoords().x < x
 				&& object.getCoords().x + object.getSize().getWidth() > x

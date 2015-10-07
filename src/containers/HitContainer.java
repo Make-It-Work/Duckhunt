@@ -21,7 +21,7 @@ public class HitContainer extends Container {
 		Point event;
 		while((event = input.getEvent()) != null){
 			//System.out.println("checking input");
-			System.out.println(event.toString());
+			//System.out.println(event.toString());
 			for(Behaviour b : behaviours){
 				HitBehaviour hb = (HitBehaviour)b;
 				if(hb.CheckHit(event.x, event.y)){

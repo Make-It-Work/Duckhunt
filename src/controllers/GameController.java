@@ -42,7 +42,7 @@ public class GameController {
 	{
 		gui = new GameView(input, objects);
 		try {
-			startLevel = LevelFactory.create("FirstLevel");
+			startLevel = LevelFactory.create("FirstLevel", movec, hitc);
 			startLevel.handle();
 			loop();
 		} catch (IllegalArgumentException e) {
