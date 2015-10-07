@@ -1,18 +1,16 @@
 package states;
 
-import levels.LevelBase;
-import factories.LevelFactory;
+import factories.DuckFactory;
 
 public abstract class DuckState {
-
 	protected int ID;
 	public DuckState() {
 		this.ID = 0;
 	}
 	
-	public LevelBase nextLevel(LevelBase lvl) {
-		LevelBase newLevel = LevelFactory.getNextLevel(lvl);
-		return newLevel;
+	public DuckState nextState(DuckState ds) {
+		DuckState newState = DuckFactory.getNextState(ds);
+		return newState;
 	}
 	
 	public abstract DuckState copy();

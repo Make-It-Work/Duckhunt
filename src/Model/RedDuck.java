@@ -4,11 +4,14 @@ import java.awt.Dimension;
 import java.awt.Point;
 
 import containers.MoveContainer;
+import factories.DuckFactory;
 
 public class RedDuck extends Duck{
 	
 	public RedDuck() {
 		super();
+		ds = DuckFactory.setState(ds);
+		ds.handle();
 	}
 
 	public RedDuck(int l, int w, int vecX, int vecY, int x, int y, MoveContainer mc) {

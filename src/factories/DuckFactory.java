@@ -23,12 +23,13 @@ public class DuckFactory {
 		loader = ServiceLoader.load(Duck.class);
 		stateloader = ServiceLoader.load(DuckState.class);
 		duckstates = new HashMap<Integer, DuckState>();
+
+		for (DuckState ds : stateloader) {
+			duckstates.put(ds.getID(), ds);
+		}
 		
 		for (Duck duck : loader) {
 			ducks.put(duck.getClass().getSimpleName(), duck);
-		}
-		for (DuckState ds : stateloader) {
-			duckstates.put(ds.getID(), ds);
 		}
 	}
 	
@@ -41,7 +42,16 @@ public class DuckFactory {
 		throw new IllegalArgumentException(message);
 	}
 	
-	public static final DuckState getNextLevel(final DuckState ds) {
+	public static DuckState setState(DuckState ds) {
+		if (ds == null) {
+			return duckstates.get(1);
+		} else {
+			return getNextState(ds);
+		}
+	}
+
+	public static DuckState getNextState(DuckState ds) {
+		// TODO Auto-generated method stub
 		return duckstates.get(ds.getID() + 1);
 	}
 

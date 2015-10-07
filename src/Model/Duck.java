@@ -3,11 +3,14 @@ package Model;
 import java.awt.Dimension;
 import java.awt.Point;
 
+import states.DuckState;
 import behaviours.MoveBehaviour;
 import containers.Container;
 import containers.MoveContainer;
+import factories.DuckFactory;
 
 public abstract class Duck extends GameObject {
+	protected DuckState ds;
 	public Duck() {
 		super();
 	}
