@@ -33,5 +33,4 @@ public class GreenDuck extends Duck{
 		// TODO Auto-generated method stub
 		System.out.println("Kwaaaaaak");
 	}
-
 }

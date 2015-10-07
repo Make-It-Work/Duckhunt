@@ -19,6 +19,11 @@ public class MoveBehaviour extends Behaviour {
 		p.x += (int)(vect.x * 0.1);
 		p.y += (int)(vect.y * 0.1);
 		object.setCoords(p);
+		
+		if(object.getCoords().y < -50 || object.getCoords().x > 610) {
+			System.out.println("bounds exceeded");
+			object.goOutOfBounds();
+		}
 	}
 
 	@Override

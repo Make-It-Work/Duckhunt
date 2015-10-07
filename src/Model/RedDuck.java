@@ -33,6 +33,7 @@ public class RedDuck extends Duck{
 		duck.setVector(vector);
 		return duck;
 	}
+	
 	public void kwaak() {
 		// TODO Auto-generated method stub
 		System.out.println("Kwaaaaaak");

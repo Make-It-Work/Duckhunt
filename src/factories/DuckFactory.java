@@ -18,6 +18,7 @@ import containers.MoveContainer;
 public class DuckFactory {
 
 	private static final Map<String, Duck> ducks;
+	private static final Map<String, DuckState> creatableStates;
 	private static final Map<Integer, DuckState> duckstates;
 	private static final ServiceLoader<Duck> loader;
 	private static final ServiceLoader<DuckState> stateloader;
@@ -27,9 +28,11 @@ public class DuckFactory {
 		loader = ServiceLoader.load(Duck.class);
 		stateloader = ServiceLoader.load(DuckState.class);
 		duckstates = new HashMap<Integer, DuckState>();
+		creatableStates = new HashMap<String, DuckState>();
 
 		for (DuckState ds : stateloader) {
 			duckstates.put(ds.getID(), ds);
+			creatableStates.put(ds.getClass().getSimpleName(), ds);
 		}
 		
 		for (Duck duck : loader) {
@@ -46,24 +49,26 @@ public class DuckFactory {
 		throw new IllegalArgumentException(message);
 	}
 	
+	public static final DuckState createState(final String name) {
+		if (duckstates.containsKey(name)) {
+			return duckstates.get(name).copy();
+		}
+		
+		final String message = String.format("Command '%s' was not found, is the services file up to date?", name);
+		throw new IllegalArgumentException(message);
+	}
+	
 	public static DuckState setState(DuckState ds) {
 		if (ds == null) {
 			return duckstates.get(1);
 		} else {
-			return getNextState(ds);
+			return changeState(ds);
 		}
 	}
 
-	public static DuckState getNextState(DuckState ds) {
+	public static DuckState goOutOfBounds() {
 		// TODO Auto-generated method stub
-		if(ds == null) {
-			return duckstates.get(1);
-		}
-		DuckState newds = duckstates.get(ds.getID() + 1);
-		if (newds == null) {
-			return duckstates.get(ds.getID());
-		}
-		return newds;
+		return duckstates.get(3);
 	}
 
 	public static ArrayList<GameObject> getRandomDucks(int amountOfUnits, MoveContainer movec, HitContainer hitc) {
@@ -79,6 +84,9 @@ public class DuckFactory {
 			String type = "GreenDuck";
 			int vecX = (int) (Math.random() * 10);
 			int vecY = (int) -(Math.random() * 10);
+			if(vecX == 0 && vecY==0) {
+				System.out.println("NOT MOVING");
+			}
 			if (!green) {
 				type = "RedDuck";
 			}
@@ -91,8 +99,18 @@ public class DuckFactory {
 
 	public static DuckState changeState(DuckState ds) {
 		// TODO Auto-generated method stub
-		System.out.println("Changing");
-		return getNextState(ds);
+		if(ds == null) {
+			return duckstates.get(1);
+		}
+		DuckState newds = duckstates.get(ds.getID() + 1);
+		if (newds == null) {
+			return duckstates.get(ds.getID());
+		}
+		return newds;
 	}
+//	
+//	public static DuckState die() {
+//		return duckstates
+//	}
 
 }

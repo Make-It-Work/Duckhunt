@@ -56,6 +56,12 @@ public abstract class Duck extends GameObject {
 		hc.removeBehaviour(hb);
 	}
 	
+	public void goOutOfBounds() {
+		this.ds = DuckFactory.goOutOfBounds();
+		mc.removeBehaviour(mb);
+		hc.removeBehaviour(hb);
+	}
+	
 	public abstract Duck copy(Dimension size, Point vector, Point coords, MoveContainer moveContainer, HitContainer hc);
 	public abstract void kwaak();
 }

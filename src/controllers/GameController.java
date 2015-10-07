@@ -65,7 +65,7 @@ public class GameController {
 			} catch (Exception e) {
 				
 			}
-			System.out.println(dt);
+			//System.out.println(dt);
 			long newTime = new Date().getTime();
 			dt = newTime - timestamp;
 			timestamp = newTime;
