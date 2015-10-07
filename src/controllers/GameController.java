@@ -40,19 +40,21 @@ public class GameController {
 	
 	public GameController()
 	{
-		gui = new GameView(input, objects);
 		try {
 			startLevel = LevelFactory.create("FirstLevel", movec, hitc);
 			startLevel.handle();
-			loop();
+			objects = startLevel.getObjects();
+			
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
+
+		gui = new GameView(input, objects);
+		loop();
 	}
 	
 	private void loop()
 	{
-		createDuck();
 		while(playing) {
 			//Read input
 			//Move objects
@@ -66,20 +68,4 @@ public class GameController {
 			}
 		}
 	}
-	
-	private void createDuck() {
-		try
-		{
-			final Duck redDuck = DuckFactory.create("RedDuck", new Dimension(50, 50), new Point(0, 2), new Point(30,100), movec, hitc);
-			objects.add(redDuck);
-			final Duck greenDuck = DuckFactory.create("GreenDuck", new Dimension(50, 50), new Point(0, 2), new Point(100,30), movec, hitc);
-			objects.add(greenDuck);
-		}
-		catch ( IllegalArgumentException exception )
-		{
-			exception.printStackTrace();
-		}
-	}
-	
-	
 }

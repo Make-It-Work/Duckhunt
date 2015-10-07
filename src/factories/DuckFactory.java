@@ -67,6 +67,7 @@ public class DuckFactory {
 		start.x = 0;
 		start.y = 400;
 		for (int i = 0; i < amountOfUnits; i++) {
+			System.out.println("Duck creation");
 			Random random = new Random();
 			boolean green = random.nextBoolean();
 			String type = "GreenDuck";
