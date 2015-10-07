@@ -16,9 +16,19 @@ public class MoveBehaviour extends Behaviour {
 		Point p = (Point)object.getCoords().clone();
 		Point vect = object.getVector();
 		
-		p.x += (int)(vect.x * 0.1);
-		p.y += (int)(vect.y * 0.1);
+		p.x += (int)(vect.x * 0.03);
+		p.y += (int)(vect.y * 0.03);
 		object.setCoords(p);
+	}
+
+	
+	public boolean checkBounds()
+	{
+		return ( object.getCoords().getY() > 600
+				|| object.getCoords().getX() > 600
+				|| object.getCoords().getX() < -50
+				|| object.getCoords().getX() < -50
+				);
 	}
 
 	@Override

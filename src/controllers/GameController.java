@@ -45,8 +45,8 @@ public class GameController {
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
-
-		gui = new GameView(input, objects);
+		Thread t = new Thread(gui = new GameView(input, objects));
+		t.start();
 		loop();
 	}
 	
@@ -59,13 +59,12 @@ public class GameController {
 			//Move objects
 			hitc.Run(dt);
 			movec.Run(dt);
-			gui.repaint();
 			try {
 				Thread.sleep(10);
 			} catch (Exception e) {
 				
 			}
-			System.out.println(dt);
+			//System.out.println(dt);
 			long newTime = new Date().getTime();
 			dt = newTime - timestamp;
 			timestamp = newTime;

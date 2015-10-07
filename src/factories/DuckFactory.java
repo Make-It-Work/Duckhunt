@@ -77,8 +77,8 @@ public class DuckFactory {
 			Random random = new Random();
 			boolean green = random.nextBoolean();
 			String type = "GreenDuck";
-			int vecX = (int) (Math.random() * 10);
-			int vecY = (int) -(Math.random() * 10);
+			int vecX = (int) (Math.random() * 50);
+			int vecY = (int) -(Math.random() * 50);
 			if (!green) {
 				type = "RedDuck";
 			}

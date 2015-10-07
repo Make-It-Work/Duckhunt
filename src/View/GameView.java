@@ -1,4 +1,5 @@
 package View;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -6,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -15,7 +17,7 @@ import javax.swing.JLabel;
 import Model.GameObject;
 import containers.InputContainer;
 
-public class GameView extends JFrame{
+public class GameView extends JFrame implements Runnable {
 	/**
 	 * 
 	 */
@@ -23,6 +25,7 @@ public class GameView extends JFrame{
 	
 	private JLabel contentPane;
 	private InputContainer inputContainer;
+	List<Image> icons = new ArrayList<Image>();
 	
 	public GameView(InputContainer input, ArrayList<GameObject> objects)
 	{
@@ -56,6 +59,13 @@ public class GameView extends JFrame{
 				inputContainer.addEvent(new Point(e.getX(),e.getY()));
 		    }
 		});
+	}
+
+	@Override
+	public void run() {
+		while(true) {
+			this.repaint();
+		}
 	}
 	
 }
