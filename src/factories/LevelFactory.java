@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ServiceLoader;
 
+import containers.MoveContainer;
 import levels.LevelBase;
 
 public class LevelFactory {
@@ -22,9 +23,9 @@ public class LevelFactory {
 		}
 	}
 	
-	public static final LevelBase create(final String name) {
+	public static final LevelBase create(final String name, MoveContainer mc) {
 		if (levels.containsKey(name)) {
-			return levels.get(name).copy();
+			return levels.get(name).copy(mc);
 		}
 		
 		final String message = String.format("Command '%s' was not found, is the services file up to date?", name);
