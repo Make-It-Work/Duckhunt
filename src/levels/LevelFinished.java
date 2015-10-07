@@ -1,16 +1,23 @@
 package levels;
 
+import containers.MoveContainer;
+
 public class LevelFinished extends LevelBase {
 
 	public LevelFinished() {
+		super();
+	}
+	public LevelFinished(MoveContainer mc) {
+		super(mc);
 		this.ID = 3;
-		System.out.println("Finished...");
+		amountOfUnits = 0;
+		createObjects();
 	}
 	
 	@Override
-	public LevelBase copy() {
+	public LevelBase copy(MoveContainer mc) {
 		// TODO Auto-generated method stub
-		return new LevelFinished();
+		return new LevelFinished(mc);
 	}
 
 	@Override

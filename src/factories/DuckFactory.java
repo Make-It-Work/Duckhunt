@@ -2,13 +2,16 @@ package factories;
 
 import java.awt.Dimension;
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.ServiceLoader;
 
 import levels.LevelBase;
 import states.DuckState;
 import Model.Duck;
+import Model.GameObject;
 import containers.MoveContainer;
 
 public class DuckFactory {
@@ -53,6 +56,29 @@ public class DuckFactory {
 	public static DuckState getNextState(DuckState ds) {
 		// TODO Auto-generated method stub
 		return duckstates.get(ds.getID() + 1);
+	}
+
+	public static ArrayList<GameObject> getRandomDucks(int amountOfUnits, MoveContainer movec) {
+		// TODO Auto-generated method stub
+		ArrayList<GameObject> objectList = new ArrayList<GameObject>();
+		Dimension d = new Dimension(50,50);
+		Point start = new Point();
+		start.x = 0;
+		start.y = 400;
+		for (int i = 0; i < amountOfUnits; i++) {
+			Random random = new Random();
+			boolean green = random.nextBoolean();
+			String type = "GreenDuck";
+			int vecX = (int) (Math.random() * 10);
+			int vecY = (int) -(Math.random() * 10);
+			if (!green) {
+				type = "RedDuck";
+			}
+			Point vector = new Point(vecX, vecY);
+			Duck duck = create(type, d, vector, start, movec);
+			objectList.add(duck);
+		}
+		return objectList;
 	}
 
 }

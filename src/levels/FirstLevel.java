@@ -1,15 +1,28 @@
 package levels;
 
+import java.awt.Dimension;
+import java.awt.Point;
+
+import containers.MoveContainer;
+import Model.Duck;
+import factories.DuckFactory;
+
 public class FirstLevel extends LevelBase{
 	public FirstLevel() {
+		super();
+	}
+	
+	public FirstLevel(MoveContainer movec) {
+		super(movec);
 		this.ID = 1;
-		System.out.println("Level.....1!!!!");
+		amountOfUnits = 10;
+		createObjects();
 	}
 	
 	@Override
-	public LevelBase copy() {
+	public LevelBase copy(MoveContainer mc) {
 		// TODO Auto-generated method stub
-		return new FirstLevel();
+		return new FirstLevel(mc);
 	}
 
 	@Override
