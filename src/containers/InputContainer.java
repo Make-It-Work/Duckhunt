@@ -1,33 +1,31 @@
 package containers;
 
-import java.awt.event.ActionEvent;
-import java.util.Iterator;
+import java.awt.Point;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class InputContainer {
+public class InputContainer extends Container {
 
-	private Queue<ActionEvent> events = new LinkedList<ActionEvent>();
+	private Queue<Point> events = new LinkedList<Point>();
 	
 	public InputContainer()
 	{
 		
 	}
 	
-	public void addEvent(ActionEvent e)
+	public void addEvent(Point p)
 	{
-		System.out.println("new event");
-		events.add(e);
+		events.add(p);
 	}
 	
-	public ActionEvent getEvent()
+	public Point getEvent()
 	{
-		return (ActionEvent)events.poll();
+		return (Point)events.poll();
 	}
 	
 	public void print()
 	{
-		for(ActionEvent e : events)
+		for(Point p : events)
 			System.out.println("a");
 	}
 }

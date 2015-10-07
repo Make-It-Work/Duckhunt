@@ -7,7 +7,7 @@ import behaviours.Behaviour;
 
 public abstract class Container {
 
-	private LinkedList<Behaviour> behaviours = new LinkedList<Behaviour>();
+	protected LinkedList<Behaviour> behaviours = new LinkedList<Behaviour>();
 	
 	
 	public void addBehaviour(Behaviour b)

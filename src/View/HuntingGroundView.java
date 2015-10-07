@@ -55,7 +55,7 @@ public class HuntingGroundView extends JLabel implements Observer{
 					fileString = "src/redduck.png";
 				}
 				BufferedImage img = ImageIO.read(new File(fileString));
-				g.drawImage(img, go.getCoords().x, go.getCoords().y, this);
+				g.drawImage(img, go.getCoords().x, go.getCoords().y, 50, 50, this);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

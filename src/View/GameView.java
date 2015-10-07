@@ -1,5 +1,5 @@
 package View;
-import java.awt.event.ActionEvent;
+import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -11,7 +11,6 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import Model.GameObject;
 import containers.InputContainer;
@@ -51,10 +50,10 @@ public class GameView extends JFrame{
 		this.setContentPane(contentPane);
 		contentPane.revalidate();
 
-		addMouseListener(new MouseAdapter() {
+		contentPane.addMouseListener(new MouseAdapter() {
 			@Override
 		    public void mousePressed(MouseEvent e) {
-				inputContainer.addEvent(new ActionEvent(e.getSource(), e.getID(), e.paramString()));
+				inputContainer.addEvent(new Point(e.getX(),e.getY()));
 		    }
 		});
 	}

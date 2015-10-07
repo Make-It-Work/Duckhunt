@@ -9,6 +9,7 @@ import java.util.ServiceLoader;
 import levels.LevelBase;
 import states.DuckState;
 import Model.Duck;
+import containers.HitContainer;
 import containers.MoveContainer;
 
 public class DuckFactory {
@@ -33,9 +34,9 @@ public class DuckFactory {
 		}
 	}
 	
-	public static final Duck create(final String name, Dimension size, Point vector, Point coords, MoveContainer mc) {
+	public static final Duck create(final String name, Dimension size, Point vector, Point coords, MoveContainer mc, HitContainer hc) {
 		if (ducks.containsKey(name)) {
-			return ducks.get(name).copy(size, vector, coords, mc);
+			return ducks.get(name).copy(size, vector, coords, mc, hc);
 		}
 		
 		final String message = String.format("Command '%s' was not found, is the services file up to date?", name);
