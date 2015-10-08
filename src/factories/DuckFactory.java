@@ -91,7 +91,6 @@ public class DuckFactory {
 
 	public static DuckState changeState(DuckState ds) {
 		// TODO Auto-generated method stub
-		System.out.println("Changing");
 		return getNextState(ds);
 	}
 

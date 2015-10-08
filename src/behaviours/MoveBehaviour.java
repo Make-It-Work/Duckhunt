@@ -25,9 +25,9 @@ public class MoveBehaviour extends Behaviour {
 	public boolean checkBounds()
 	{
 		return ( object.getCoords().getY() > 600
-				|| object.getCoords().getX() > 600
+				|| object.getCoords().getX() > 900
 				|| object.getCoords().getX() < -50
-				|| object.getCoords().getX() < -50
+				|| object.getCoords().getY() < -50
 				);
 	}
 

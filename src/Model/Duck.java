@@ -35,6 +35,7 @@ public abstract class Duck extends GameObject {
 		super(size, vector, coords);
 		this.mc = mc;
 		this.hc = hc;
+		System.out.println(this.mc);
 		this.mb = new MoveBehaviour((GameObject)this, (Container)mc);
 		this.hb = new HitBehaviour((GameObject)this, (Container)hc);
 	}

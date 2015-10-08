@@ -32,8 +32,9 @@ public class GameController {
 	//views
 	GameView gui;
 	
-	private LevelBase startLevel;
+	Thread guiThread;
 	
+	private LevelBase startLevel;
 	
 	public GameController()
 	{
@@ -45,8 +46,8 @@ public class GameController {
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
-		Thread t = new Thread(gui = new GameView(input, objects));
-		t.start();
+		guiThread = new Thread(gui = new GameView(input, objects));
+		guiThread.start();
 		loop();
 	}
 	
@@ -59,6 +60,17 @@ public class GameController {
 			//Move objects
 			hitc.Run(dt);
 			movec.Run(dt);
+			if(movec.isEmpty()) {
+				startLevel = startLevel.nextLevel(startLevel);
+				if (startLevel == null) {
+					System.exit(0);
+				} else {
+					startLevel.handle();
+					objects = startLevel.getObjects();
+					guiThread = new Thread(gui = new GameView(input, objects));
+					guiThread.start();
+				}
+			};
 			try {
 				Thread.sleep(10);
 			} catch (Exception e) {

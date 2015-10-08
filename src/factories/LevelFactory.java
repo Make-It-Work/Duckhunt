@@ -26,15 +26,23 @@ public class LevelFactory {
 	
 	public static final LevelBase create(final String name, MoveContainer mc, HitContainer hc) {
 		if (levels.containsKey(name)) {
-			return levels.get(name).copy(mc, hc);
+			LevelBase lvl = levels.get(name).copy(mc, hc);
+			return lvl;
 		}
 		
 		final String message = String.format("Command '%s' was not found, is the services file up to date?", name);
 		throw new IllegalArgumentException(message);
 	}
 	
-	public static final LevelBase getNextLevel(final LevelBase currentLevel) {
-		return levelMap.get(currentLevel.getID() + 1);
+	public static final LevelBase getNextLevel(final LevelBase currentLevel, MoveContainer mc, HitContainer hc) {
+		int lvlId = currentLevel.getID() + 1;
+		System.out.println(levelMap.toString());
+		LevelBase nextLevel = levelMap.get(lvlId);
+		if(nextLevel == null) {
+			return nextLevel;
+		}
+		nextLevel = create(nextLevel.getClass().getSimpleName(), mc, hc);
+		return nextLevel;
 	}
 	
 }
