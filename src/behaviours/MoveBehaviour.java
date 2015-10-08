@@ -16,8 +16,8 @@ public class MoveBehaviour extends Behaviour {
 		Point p = (Point)object.getCoords().clone();
 		Point vect = object.getVector();
 		
-		p.x += (int)(vect.x * 0.03);
-		p.y += (int)(vect.y * 0.03);
+		p.x += (int)(vect.x * 0.03 + (0.03 * dt));
+		p.y += (int)(vect.y * 0.03 + (0.03 * dt));
 		object.setCoords(p);
 	}
 
