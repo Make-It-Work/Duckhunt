@@ -25,7 +25,7 @@ public abstract class LevelBase {
 	}
 	
 	public LevelBase nextLevel(LevelBase lvl) {
-		LevelBase newLevel = LevelFactory.getNextLevel(lvl);
+		LevelBase newLevel = LevelFactory.getNextLevel(lvl, movec, hitc);
 		return newLevel;
 	}
 	

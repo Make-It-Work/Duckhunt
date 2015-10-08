@@ -34,11 +34,14 @@ public class LevelFactory {
 		throw new IllegalArgumentException(message);
 	}
 	
-	public static final LevelBase getNextLevel(final LevelBase currentLevel) {
+	public static final LevelBase getNextLevel(final LevelBase currentLevel, MoveContainer mc, HitContainer hc) {
 		int lvlId = currentLevel.getID() + 1;
-		Map<Integer, LevelBase> hm = levelMap;
 		System.out.println(levelMap.toString());
 		LevelBase nextLevel = levelMap.get(lvlId);
+		if(nextLevel == null) {
+			return nextLevel;
+		}
+		nextLevel = create(nextLevel.getClass().getSimpleName(), mc, hc);
 		return nextLevel;
 	}
 	

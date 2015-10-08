@@ -32,6 +32,8 @@ public class GameController {
 	//views
 	GameView gui;
 	
+	Thread guiThread;
+	
 	private LevelBase startLevel;
 	
 	public GameController()
@@ -44,8 +46,8 @@ public class GameController {
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
-		Thread t = new Thread(gui = new GameView(input, objects));
-		t.start();
+		guiThread = new Thread(gui = new GameView(input, objects));
+		guiThread.start();
 		loop();
 	}
 	
@@ -65,6 +67,8 @@ public class GameController {
 				} else {
 					startLevel.handle();
 					objects = startLevel.getObjects();
+					guiThread = new Thread(gui = new GameView(input, objects));
+					guiThread.start();
 				}
 			};
 			try {

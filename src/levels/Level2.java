@@ -13,7 +13,6 @@ public class Level2 extends LevelBase{
 	
 	public Level2(MoveContainer movec, HitContainer hitc) {
 		super(movec, hitc);
-		System.out.println("Correct");
 		this.amountOfUnits = 4;
 		this.ID = 2;
 	}

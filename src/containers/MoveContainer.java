@@ -22,7 +22,6 @@ public class MoveContainer extends Container {
 		if(behaviours.iterator().hasNext()) {
 			return false;
 		}
-		System.out.println("empty");
 		return true;
 	}
 }
